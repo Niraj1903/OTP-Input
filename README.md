@@ -60,7 +60,7 @@ export default App;
 You can customize the number of OTP digits by adjusting the `COUNT` constant inside the `Otp` component.
 
 ```js
-const COUNT = 5; // Change this to adjust the number of OTP digits.
+const COUNT = 6; // Change this to adjust the number of OTP digits.
 ```
 
 ---
