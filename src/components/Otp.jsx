@@ -1,31 +1,48 @@
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Otp = () => {
-  const OTP_DIGIT_COUNT = 5;
+  const COUNT = 5;
+  const [digit, setDigit] = useState([...Array(COUNT).fill("")]);
 
-  const [digit, setDigit] = useState([...Array(OTP_DIGIT_COUNT).fill("")]);
-
-  const handleOnChange = (value, index) => {
+  const handleDigit = (value, index) => {
     if (isNaN(value)) return;
 
     const newValue = value.trim();
     const newArr = [...digit];
     newArr[index] = newValue.slice(-1);
     setDigit(newArr);
+    newValue && refArr.current[index + 1]?.focus();
+  };
+
+  const refArr = useRef([]);
+
+  useEffect(() => {
+    refArr.current[0]?.focus();
+  }, []);
+
+  const handleBackspace = (e, index) => {
+    if (!e.target.value && e.key === "Backspace") {
+      refArr.current[index - 1]?.focus();
+    }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-900">
-      <div className="flex space-x-2">
-        {digit.map((item, index) => (
-          <input
-            className="w-12 h-12 text-center text-white bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-transparent"
-            key={index}
-            type="text"
-            value={item}
-            onChange={(e) => handleOnChange(e.target.value, index)}
-          />
-        ))}
+    <div className="bg-gray-900 min-h-screen flex justify-center items-center">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold text-white mb-6">ENTER OTP</h1>
+        <div className="flex justify-center space-x-4">
+          {digit.map((i, index) => (
+            <input
+              className="h-[60px] w-[60px] border-2 border-gray-500 rounded-lg text-center text-xl text-white bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 transform hover:scale-105"
+              key={index}
+              type="text"
+              value={i}
+              onChange={(e) => handleDigit(e.target.value, index)}
+              onKeyDown={(e) => handleBackspace(e, index)}
+              ref={(input) => (refArr.current[index] = input)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
