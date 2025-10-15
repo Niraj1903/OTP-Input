@@ -1,3 +1,4 @@
+````markdown
 # OTP Input Component
 
 This is a React component for handling OTP (One-Time Password) input, designed for easy integration into your projects where users need to enter OTP. The component includes features like automatic focus transition between input fields, input validation, and handling the backspace functionality.
@@ -21,7 +22,6 @@ This is a React component for handling OTP (One-Time Password) input, designed f
    ```bash
    git clone https://github.com/Niraj1903/OTP-Input
    ```
-
 ````
 
 2. Navigate to the project folder and install dependencies.
@@ -60,7 +60,7 @@ export default App;
 You can customize the number of OTP digits by adjusting the `COUNT` constant inside the `Otp` component.
 
 ```js
-const COUNT = 6; // Change this to adjust the number of OTP digits.
+const COUNT = 5; // Change this to adjust the number of OTP digits.
 ```
 
 ---
@@ -81,6 +81,13 @@ const COUNT = 6; // Change this to adjust the number of OTP digits.
 
 ---
 
+## Demo
+
+You can try out the demo of this OTP input component here:
+[Live Demo](https://otp-input-reactjs.netlify.app/)
+
+---
+
 ## License
 
 This project is open-source and available under the MIT License.
@@ -92,4 +99,6 @@ This project is open-source and available under the MIT License.
 **Niraj**
 [GitHub Profile](https://github.com/Niraj1903)
 
-````
+```
+
+```
