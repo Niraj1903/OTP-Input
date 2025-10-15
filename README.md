@@ -92,7 +92,4 @@ This project is open-source and available under the MIT License.
 **Niraj**
 [GitHub Profile](https://github.com/Niraj1903)
 
-```
-
-```
 ````
