@@ -24,6 +24,14 @@ const Otp = () => {
     if (!e.target.value && e.key === "Backspace") {
       refArr.current[index - 1]?.focus();
     }
+
+    if (e.key === "ArrowRight") {
+      refArr.current[index + 1]?.focus();
+    }
+
+    if (e.key === "ArrowLeft") {
+      refArr.current[index - 1]?.focus();
+    }
   };
 
   return (
